@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/FY-aptx/"/>
-  <updated>2020-05-20T02:42:42.334Z</updated>
+  <updated>2020-05-25T13:21:56.026Z</updated>
   <id>https://github.com/FY-aptx/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MyBatis</title>
+    <link href="https://github.com/FY-aptx/2020/05/25/mybatis/"/>
+    <id>https://github.com/FY-aptx/2020/05/25/mybatis/</id>
+    <published>2020-05-25T13:13:24.000Z</published>
+    <updated>2020-05-25T13:21:56.026Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;MyBatis&quot;&gt;&lt;a href=&quot;#MyBatis&quot; class=&quot;headerlink&quot; title=&quot;MyBatis&quot;&gt;&lt;/a&gt;MyBatis&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://github.com/FY-aptx/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://github.com/FY-aptx/tags/Java/"/>
+    
+      <category term="MyBatis" scheme="https://github.com/FY-aptx/tags/MyBatis/"/>
+    
+  </entry>
   
   <entry>
     <title>十大经典排序算法整理汇总（附代码）</title>
