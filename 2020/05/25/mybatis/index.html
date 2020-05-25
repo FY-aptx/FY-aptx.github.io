@@ -520,8 +520,7 @@ MyBatis 本是apache的一个开源项目iBat">
 <p><a href="https://juejin.im/post/5aa5c6fb5188255587232e5a" target="_blank" rel="noopener">https://juejin.im/post/5aa5c6fb5188255587232e5a</a></p>
 </blockquote>
 <p>MyBatis、Hibernate等持久化框架都是为了体现ORM的思想，是对JDBC的一种封装。</p>
-<img src="MyBatis.assets/image-20200524134606522.png" alt="image-20200524134606522" style="zoom:67%;">
-
+<p><img src="https://i.loli.net/2020/05/25/eqsmctgdjKDbiUC.png" alt="image-20200524134606522.png"></p>
 <p>MyBatis与Hibernate存在以下区别：</p>
 <ol>
 <li><p><em>MyBatis是半自动的，Hibernate是全自动的</em></p>
@@ -565,15 +564,12 @@ INSERT INTO `user`(`id`,`name`,`pwd`) VALUES
 (1,'FY','123456'),
 (2,'张三','123456'),
 (3,'李四','123890')<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-3-新建Maven项目"><a href="#2-3-新建Maven项目" class="headerlink" title="2.3 新建Maven项目"></a>2.3 新建Maven项目</h3><img src="MyBatis.assets/image-20200524140358837.png" alt="image-20200524140358837" style="zoom: 80%;">
-
-<img src="MyBatis.assets/image-20200524140625430.png" alt="image-20200524140625430" style="zoom:80%;">
-
+<h3 id="2-3-新建Maven项目"><a href="#2-3-新建Maven项目" class="headerlink" title="2.3 新建Maven项目"></a>2.3 新建Maven项目</h3><p><img src="https://i.loli.net/2020/05/25/gInH2tVhxJdGL5o.png" alt="image-20200524140358837.png"></p>
+<p><img src="https://i.loli.net/2020/05/25/nYXPk1Kc5RhVMri.png" alt="image-20200524140625430.png"></p>
 <ul>
 <li>创建之后进入File-Settings，将maven版本更改为自己的</li>
 </ul>
-<img src="MyBatis.assets/image-20200524140844717.png" alt="image-20200524140844717" style="zoom: 67%;">
-
+<p><img src="https://i.loli.net/2020/05/25/9JE6jfPGl1cD7w2.png" alt="image-20200524140844717.png"></p>
 <ul>
 <li>在pom.xml文件中添加依赖</li>
 </ul>
@@ -603,12 +599,8 @@ INSERT INTO `user`(`id`,`name`,`pwd`) VALUES
 <ul>
 <li>删除src目录（因为目前新建的MyBatis要用做父工程，父工程的src用不到，之后要再在父工程下建立子工程）</li>
 </ul>
-<h3 id="2-4-创建一个Mdule"><a href="#2-4-创建一个Mdule" class="headerlink" title="2.4 创建一个Mdule"></a>2.4 创建一个Mdule</h3><img src="MyBatis.assets/image-20200524143412910.png" alt="image-20200524143412910" style="zoom:80%;">
-
-<img src="MyBatis.assets/image-20200524143555497.png" alt="image-20200524143555497" style="zoom:80%;">
-
-
-
+<h3 id="2-4-创建一个Mdule"><a href="#2-4-创建一个Mdule" class="headerlink" title="2.4 创建一个Mdule"></a>2.4 创建一个Mdule</h3><p><img src="https://i.loli.net/2020/05/25/2gJHqLUbAi4T6ne.png" alt="image-20200524143412910.png"></p>
+<p><img src="https://i.loli.net/2020/05/25/4dVTbNUkyqDBu7W.png" alt="image-20200524143555497.png"></p>
 <h3 id="2-5-为子模块编写核心配置文件"><a href="#2-5-为子模块编写核心配置文件" class="headerlink" title="2.5 为子模块编写核心配置文件"></a>2.5 为子模块编写核心配置文件</h3><ul>
 <li>mybatis-config.xml，放于resources目录下</li>
 </ul>
@@ -806,7 +798,7 @@ INSERT INTO `user`(`id`,`name`,`pwd`) VALUES
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>子模块mybatis-01的整体目录为：</strong></p>
-<p><img src="MyBatis.assets/image-20200525113808690.png" alt="image-20200525113808690"></p>
+<p><img src="https://i.loli.net/2020/05/25/637wpaGnSqKLjle.png" alt="image-20200525113808690.png"></p>
 <h2 id="三、核心配置文件解析"><a href="#三、核心配置文件解析" class="headerlink" title="三、核心配置文件解析"></a>三、核心配置文件解析</h2><h3 id="3-1-配置文件的整体结构"><a href="#3-1-配置文件的整体结构" class="headerlink" title="3.1 配置文件的整体结构"></a>3.1 配置文件的整体结构</h3><p>XML 配置文件中包含了对 MyBatis 系统的核心设置，包括获取数据库连接实例的数据源（DataSource）以及决定事务作用域和控制方式的事务管理器（TransactionManager）等，MyBatis 的配置文件包含了会深深影响 MyBatis 行为的设置和属性信息。 配置文档的顶层结构如下：</p>
 <pre><code>configuration（配置）
 properties（属性）
@@ -975,8 +967,7 @@ SqlSessionFactory factory <span class="token operator">=</span> <span class="tok
 <li>接口和他的Mapper配置文件必须同名！</li>
 <li>接口和他的Mapper配置文件必须在同一个包下！</li>
 </ul>
-<h2 id="四、生命周期和作用域"><a href="#四、生命周期和作用域" class="headerlink" title="四、生命周期和作用域"></a>四、生命周期和作用域</h2><img src="MyBatis.assets/image-20200524213936292.png" alt="image-20200524213936292" style="zoom: 67%;">
-
+<h2 id="四、生命周期和作用域"><a href="#四、生命周期和作用域" class="headerlink" title="四、生命周期和作用域"></a>四、生命周期和作用域</h2><p><img src="https://i.loli.net/2020/05/25/vN9o32d1hrcBUfi.png" alt="image-20200524213936292.png"></p>
 <p>生命周期，和作用域，是至关重要的，因为错误的使用会导致非常严重的<strong>并发问题</strong></p>
 <h3 id="4-1-SqlSessionFactoryBuilder"><a href="#4-1-SqlSessionFactoryBuilder" class="headerlink" title="4.1 SqlSessionFactoryBuilder"></a>4.1 SqlSessionFactoryBuilder</h3><p>这个类可以在任何时候被实例化、使用和销毁。<strong>一旦创建了SqlSessionFactory 就不需要</strong></p>
 <p><strong>再保留它了</strong>。所以SqlSessionFactoryBuilder 实例的最好的<strong>作用域是方法体内(即一个本地方法</strong></p>
@@ -1339,10 +1330,7 @@ List<span class="token operator">&lt;</span>User<span class="token operator">></
     <span class="token punctuation">}</span>
     sqlSession<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="8-3-使用分页插件"><a href="#8-3-使用分页插件" class="headerlink" title="8.3 使用分页插件"></a>8.3 使用分页插件</h3><img src="MyBatis.assets/image-20200525004741861.png" alt="image-20200525004741861" style="zoom:67%;">
-
-
-
+<h3 id="8-3-使用分页插件"><a href="#8-3-使用分页插件" class="headerlink" title="8.3 使用分页插件"></a>8.3 使用分页插件</h3><p><img src="https://i.loli.net/2020/05/25/TAxWIXEHc9PO5wK.png" alt="image-20200525004741861.png"></p>
 <h2 id="九、注解开发"><a href="#九、注解开发" class="headerlink" title="九、注解开发"></a>九、注解开发</h2><h3 id="9-1-面向接口编程"><a href="#9-1-面向接口编程" class="headerlink" title="9.1 面向接口编程"></a>9.1 面向接口编程</h3><p>大家之前都学过面向对象编程，也学习过接口，但在真正的开发中，很多时候我们会选择面向接口编程。<br> <strong>根本原因 :  ==解耦== , 可拓展 , 提高复用 , 分层开发中 , 上层不用管具体的实现 , 大家都遵守共同的标准 , 使得开发变得容易 , 规范性更好</strong><br> 在一个面向对象的系统中，系统的各种功能是由许许多多的不同对象协作完成的。在这种情况下，各个对象内部是如何实现自己的，对系统设计人员来讲就不那么重要了；而各个对象之间的协作关系则成为系统设计的关键。小到不同类之间的通信，大到各模块之间的交互，在系统设计之初都是要着重考虑的，这也是系统设计的主要工作内容。面向接口编程就是指按照这种思想来编程。</p>
 <p><strong>关于接口的理解</strong></p>
 <ul>
@@ -1360,12 +1348,7 @@ List<span class="token operator">&lt;</span>User<span class="token operator">></
 <h3 id="9-2-使用注解开发"><a href="#9-2-使用注解开发" class="headerlink" title="9.2 使用注解开发"></a>9.2 使用注解开发</h3><p>本质：反射机制的实现</p>
 <p>底层：动态代理</p>
 <p>执行流程：</p>
-<img src="MyBatis.assets/image-20200525111857838.png" alt="image-20200525111857838" style="zoom: 67%;">
-
-
-
-
-
+<p><img src="https://i.loli.net/2020/05/25/FCovX2kE4lSVGNM.png" alt="image-20200525111857838.png"></p>
 <h3 id="9-3-注解实现CRUD"><a href="#9-3-注解实现CRUD" class="headerlink" title="9.3 注解实现CRUD"></a>9.3 注解实现CRUD</h3><p>新建子模块—–&gt;导需要的包—–&gt;编写mybatis-config核心配置文件（这几个过程不再赘述）</p>
 <ol>
 <li>编写接口</li>
@@ -2142,19 +2125,16 @@ List<span class="token operator">&lt;</span>User<span class="token operator">></
 <li>测试在一个Sesion中查询两次相同记录</li>
 <li>查看日志输出</li>
 </ol>
-<img src="MyBatis.assets/image-20200525203345663.png" alt="image-20200525203345663" style="zoom:67%;">
-
+<p><img src="https://i.loli.net/2020/05/25/jVh3UPSnwOpboY1.png" alt="image-20200525203345663.png"></p>
 <p>缓存失效的情况：</p>
 <ol>
 <li>查询不同的东西</li>
 </ol>
-<img src="MyBatis.assets/image-20200525203211529.png" alt="image-20200525203211529" style="zoom:67%;">
-
+<p><img src="https://i.loli.net/2020/05/25/nKOUe5LVYfqph34.png" alt="image-20200525203035491.png"></p>
 <ol start="2">
 <li>增删改操作，可能会改变原来的数据，所以必定会刷新缓存！</li>
 </ol>
-<img src="MyBatis.assets/image-20200525203718289.png" alt="image-20200525203718289" style="zoom: 50%;">
-
+<p><img src="https://i.loli.net/2020/05/25/EPpNbHzl5LsIuoA.png" alt="image-20200525203718289.png"></p>
 <ol start="3">
 <li><p>查询不同的Mapper.xml</p>
 </li>
