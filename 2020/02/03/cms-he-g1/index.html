@@ -4,11 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="数组和矩阵, FY">
+    <meta name="keywords" content="CMS和G1, FY">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="数组和矩阵 | FY">
+    <meta name="description" content="CMS和G10、前言本文是对CMS和G1做的详细总结，文中内容主要参考了：
+1、《深入理解Java虚拟机》
+2、https://juejin.im/post/6844903974676463629
+3、https://blog.csdn.n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>数组和矩阵 | FY</title>
+    <title>CMS和G1 | FY</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -296,13 +299,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        数组和矩阵
+                        CMS和G1
                     </div>
                 </div>
             </div>
@@ -413,16 +416,16 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/" target="_blank">
-                            <span class="chip bg-color"></span>
+                        <a href="/tags/垃圾回收/" target="_blank">
+                            <span class="chip bg-color">垃圾回收</span>
                         </a>
                         
-                        <a href="/" target="_blank">
-                            <span class="chip bg-color"></span>
+                        <a href="/tags/CMS/" target="_blank">
+                            <span class="chip bg-color">CMS</span>
                         </a>
                         
-                        <a href="/" target="_blank">
-                            <span class="chip bg-color"></span>
+                        <a href="/tags/G1/" target="_blank">
+                            <span class="chip bg-color">G1</span>
                         </a>
                         
                     </div>
@@ -433,8 +436,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/" class="post-category" target="_blank">
-                            
+                        <a href="/categories/Java/" class="post-category" target="_blank">
+                            Java
                         </a>
                         
                     </div>
@@ -445,7 +448,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-10
+                    2020-02-03
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -459,14 +462,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
                 
@@ -482,7 +485,120 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="CMS和G1"><a href="#CMS和G1" class="headerlink" title="CMS和G1"></a>CMS和G1</h1><h2 id="0、前言"><a href="#0、前言" class="headerlink" title="0、前言"></a><strong>0、前言</strong></h2><p>本文是对CMS和G1做的详细总结，文中内容主要参考了：</p>
+<p>1、《深入理解Java虚拟机》</p>
+<p>2、<a href="https://juejin.im/post/6844903974676463629" target="_blank" rel="noopener">https://juejin.im/post/6844903974676463629</a></p>
+<p>3、<a href="https://blog.csdn.net/Fly_as_tadpole/article/details/85047616" target="_blank" rel="noopener">https://blog.csdn.net/Fly_as_tadpole/article/details/85047616</a></p>
+<p>4、<a href="https://blog.csdn.net/know9163/article/details/80574488" target="_blank" rel="noopener">https://blog.csdn.net/know9163/article/details/80574488</a></p>
+<h2 id="1、CMS（Concurrent-Mark-Sweep）"><a href="#1、CMS（Concurrent-Mark-Sweep）" class="headerlink" title="1、CMS（Concurrent Mark Sweep）"></a>1、CMS（Concurrent Mark Sweep）</h2><h3 id="1-1-概述"><a href="#1-1-概述" class="headerlink" title="1.1 概述"></a>1.1 概述</h3><p><strong>CMS收集器：是一种以获取最短回收停顿时间为目标的收集器。</strong>基于<strong>并发“标记清理”</strong>实现，因此适用于<strong>老年代</strong>垃圾的回收。在CMS收集器工作时，<strong>GC工作线程和用户线程可以同时并发执行</strong>，以达到降低收集停顿时间的目的。</p>
+<h3 id="1-2-运作"><a href="#1-2-运作" class="headerlink" title="1.2 运作"></a>1.2 运作</h3><p>CMS分为四个步骤：</p>
+<ul>
+<li><strong>初始标记</strong>（CMS initial mark）：标记GC Roots能直接关联到的对象，时间很短。</li>
+<li><strong>并发标记</strong>（CMS concurrent mark）：进行可达性分析，找出存活的对象，时间很长，该过程可以与用户线程并发执行。</li>
+<li><strong>重新标记</strong>（CMS remark）：在并发标记的过程中用户线程仍在并发执行，所以需要修正该过程中标记产生变动的那一部分对象的标记记录，时间较长。</li>
+<li><strong>并发清除</strong>（CMS concurrent sweep）：回收内存空间，时间很长。</li>
+</ul>
+<p><img src="https://fy-blog.oss-cn-beijing.aliyuncs.com/MyBlog/CMS-G1/image-20200811104720402.png" alt="image-20200811104720402"></p>
+<p><code>初始标记</code>、<code>重新标记</code>这两个步骤仍然需要<strong>Stop-the-world</strong>。</p>
+<h3 id="1-3-安全点-Safepoint"><a href="#1-3-安全点-Safepoint" class="headerlink" title="1.3 安全点(Safepoint)"></a>1.3 安全点(Safepoint)</h3><p><strong>安全点，即程序执行时并非在所有地方都能停顿下来开始GC，只有在到达安全点时才能暂停</strong>。Safepoint的选定既不能太少以至于让GC等待时间太长，也不能过于频繁以致于过分增大运行时的负荷。</p>
+<p><strong>安全点的初始目的并不是让其他线程停下，而是找到一个稳定的执行状态</strong>。在这个执行状态下，Java虚拟机的堆栈不会发生变化。这么一来，垃圾回收器便能够“安全”地执行可达性分析。只要不离开这个安全点，Java虚拟机便能够在垃圾回收的同时，继续运行这段本地代码。</p>
+<p>程序运行时并非在所有地方都能停顿下来开始GC，只有在到达安全点时才能暂停。<strong>安全点的选定基本上是以程序“是否具有让程序长时间执行的特征”为标准进行选定的。</strong>“<strong>长时间执行</strong>”的最明显特征就是<strong>指令序列复用，例如方法调用、循环跳转、异常跳转等</strong>，所以具有这些功能的指令才会产生Safepoint。</p>
+<p>对于安全点，另一个需要考虑的问题就是如何在GC发生时<strong>让所有线程</strong>（这里不包括执行JNI调用的线程）都<strong>“跑”到最近的安全点上再停顿下来</strong>。</p>
+<p>两种解决方案：</p>
+<ul>
+<li><p><strong>抢先式中断</strong>（Preemptive Suspension）</p>
+<p>抢先式中断不需要线程的执行代码主动去配合，在GC发生时，<strong>首先把所有线程全部中断</strong>，如果发现<strong>有线程中断的地方不在安全点上，就恢复线程，让它“跑”到安全点上</strong>。现在几乎没有虚拟机采用这种方式来暂停线程从而响应GC事件。</p>
+</li>
+<li><p><strong>主动式中断</strong>（Voluntary Suspension）</p>
+<p>主动式中断的思想是当GC需要中断线程的时候，<strong>不直接对线程操作</strong>，仅仅<strong>简单地设置一个标志</strong>，各<strong>个线程执行时主动去轮询这个标志，发现中断标志为真时就自己中断挂起</strong>。轮询标志的地方和安全点是重合的，另外再加上创建对象需要分配内存的地方。</p>
+</li>
+</ul>
+<p><strong>安全区域</strong></p>
+<p>指在一段代码片段中，引用关系不会发生变化。在<strong>这个区域中任意地方开始GC都是安全的</strong>。也可以把Safe Region看作是被扩展了的Safepoint。</p>
+<h3 id="1-4-优缺点"><a href="#1-4-优缺点" class="headerlink" title="1.4 优缺点"></a><strong>1.4 优缺点</strong></h3><p>CMS收集器<strong>优点</strong>：并发收集、低停顿</p>
+<p>CMS收集器<strong>缺点</strong>：</p>
+<ol>
+<li><strong>对CPU资源非常敏感</strong>，可能会导致应用程序变慢，吞吐率下降。</li>
+<li>无法处理<strong>浮动垃圾</strong>，因为在并发清除阶段用户线程还在运行，自然就会产<br>生新的垃圾，而在此次收集中无法收集他们，只能留到下次收集，这部分垃圾为浮动垃圾，同时，由于用户线程并发执行，所以需要预留一部分老年<br>代空间提供并发收集时程序运行使用。</li>
+<li>由于采用的<strong>标记 - 清除算法</strong>，会<strong>产生大量的内存碎片</strong>，不利于大对象的分配，可能会提前触发一次Full GC。</li>
+<li>虚拟机提供了<strong>-XX:+UseCMSCompactAtFullCollection</strong>参数来进行<strong>碎片的合并</strong>整理过程，这样会使得<strong>停顿时间变长</strong>，虚拟机还提供了一个参数配置，-<br><strong>XX:+CMSFullGCsBeforeCompaction</strong>，用于设置执行多少次不压缩的Full GC后，接着来一次带压缩的GC。</li>
+</ol>
+<h2 id="2、G1（Garbage-First）"><a href="#2、G1（Garbage-First）" class="headerlink" title="2、G1（Garbage First）"></a><strong>2、G1（Garbage First）</strong></h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p><strong>G1收集器：</strong>是一款<strong>面向服务端应用</strong>的收集器，它能<strong>充分利用多CPU、多核环境</strong>，因此它是一款<strong>并行与并发收集器</strong>。G1最显著的特点是重新定义了堆空间，打破了原有的分代模型，<strong>将堆划分为一个个区域</strong>。这么做的目的是在进行收集时<strong>不必在全堆范围内进行</strong>。区域划分的好处就是带来了<strong>可预测的停顿时间模型</strong>：用户可以指定收集操作在多长时间内完成，即G1提供了<strong>接近实时的收集特性</strong>。</p>
+<h3 id="2-2-Region"><a href="#2-2-Region" class="headerlink" title="2.2 Region"></a>2.2 Region</h3><p>在G1之前的其他收集器进行收集的范围要么是整个新生代（Minor GC），要么是整个老年代（Major GC），要么是整个Java堆（Full GC）。而G1不再是这样。在堆的结构设计时，G1打破了以往将收集范围固定在新生代或老年代的模式，<strong>G1将堆分成许多相同大小的区域单元，每个单元称为Region</strong>。<strong>Region是一块地址连续的内存空间</strong>，G1模块的组成如下图所示：</p>
+<img src="https://fy-blog.oss-cn-beijing.aliyuncs.com/MyBlog/CMS-G1/image-20200811113802179.png" alt="2" style="zoom:80%;">
+
+<p>G1收集器将整个Java堆划分为多个大小相等的独立区域（Region），虽然还保留有新生代和老年代的概念，但<strong>新生代和老年代不再是物理隔离的了</strong>，它们都是一部分Region（不需要连续）的集合。Region的大小是一致的，数值是在1M到32M字节之间的一个2的幂值数，JVM会尽量划分2048个左右、同等大小的Region，这一点可以参看如下<a href="http://hg.openjdk.java.net/jdk/jdk/file/fa2f93f99dbc/src/hotspot/share/gc/g1/heapRegionBounds.hpp" target="_blank" rel="noopener">源码</a>。其实这个数字既可以手动调整，G1也会根据堆大小自动进行调整。</p>
+<h3 id="2-3-特点"><a href="#2-3-特点" class="headerlink" title="2.3 特点"></a><strong>2.3 特点</strong></h3><ul>
+<li><p><strong>并行和并发：</strong>使用多个CPU来缩短Stop The World停顿时间，与用户线程并发执行。</p>
+</li>
+<li><p><strong>分代收集：</strong>独立管理整个堆，但是能够采用不同的方式去处理新创建对象和已经存活了一段时间、熬过多次GC 的旧对象，以获取更好的收集效果。</p>
+</li>
+<li><p><strong>空间整合：</strong>基于标记 - 整理算法，无内存碎片产生。虽然从局部（两个Region之间）上来看是基于<strong>复制</strong>算法实现的。但无论如何，这两种算法都意味着G1运作期间<strong>不会产生内存空间碎片，收集后能提供规整的可用内存</strong>。这种特性有利于程序长时间运行，分配大对象时不会因为无法找到连续内存空间而提前触发下一次GC。</p>
+</li>
+<li><p>可预测的停顿。能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫<br>秒。</p>
+</li>
+</ul>
+<h3 id="2-4-运作"><a href="#2-4-运作" class="headerlink" title="2.4 运作"></a>2.4 运作</h3><ul>
+<li><p><strong>初始标记</strong>（Initial Marking）：</p>
+<p>标记<strong>GC Roots能直接关联到的对象</strong>，并且修改TAMS（Next Top at Mark Start）的值，让下一阶段用户程序并发运行时，能在正确可用的Region中创建新对象，<strong>这阶段需要停顿线程，但耗时很短</strong>。</p>
+</li>
+<li><p><strong>并发标记</strong>（Concurrent Marking）：</p>
+<p>进行可达性分析，找出存活的对象，时间很长，但是该过程可以与用户线程并发执行。</p>
+</li>
+<li><p><strong>最终标记</strong>（Final Marking）：</p>
+<p>为了<strong>修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分标记记录</strong>，虚拟机将这段时间对象变化记录在线程<strong>Remembered Set Logs</strong>里面，<strong>最终标记阶段需要把Remembered Set Logs的数据合并到Remembered Set（记忆集）中</strong>。<strong>维护一个Remebered Set集合来存放各个Region之间的引用关系，当进行GC Roots Tracing 的时候就可以只扫描set里的关联region，而不用全堆扫描啦</strong>这阶段需要<strong>停顿线程</strong>，但是可以与用户线程并发执行。</p>
+</li>
+<li><p><strong>筛选回收</strong>（Live Data Counting and Evacuation）：</p>
+<p>G1可以有计划的避免在整个JAV堆中进行垃圾收集，首先对各个Region的回收价值<strong>（回收该区域的时间消耗和能得到的内存比值）</strong>和成本进行<strong>排序</strong>，根据用户所期望的GC停顿时间来制定回收计划。这个阶段也可以做到与用户程序一起并发执行，但是因为只回收一部分Region，<strong>时间是用户可控制的，而且停顿用户线程将大幅提高收集效率。</strong>（上述也是可预测停顿的含义）</p>
+</li>
+</ul>
+<p>  <img src="https://fy-blog.oss-cn-beijing.aliyuncs.com/MyBlog/CMS-G1/image-20200811113729165.png" alt="image-20200811113729165"></p>
+<h2 id="3、CMS和G1对比"><a href="#3、CMS和G1对比" class="headerlink" title="3、CMS和G1对比"></a>3、CMS和G1对比</h2><p>G1与CMS的特征对比如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">特征</th>
+<th>G1</th>
+<th>CMS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">并发和分代</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td align="center">最大化释放堆内存</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td align="center">低延时</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td align="center">吞吐量</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td align="center">压实</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td align="center">可预测性</td>
+<td>强</td>
+<td>弱</td>
+</tr>
+<tr>
+<td align="center">新生代和老年代的物理隔离</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody></table>
+
             </div>
             <hr />
 
@@ -640,9 +756,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《数组和矩阵》
+                    《CMS和G1》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/init.html" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/03/cms-he-g1/" property="cc:attributionName"
                rel="cc:attributionURL">
                 FY
             </a> 采用
@@ -944,56 +1060,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/init.html">
+                <a href="/2020/02/10/spring/">
                     <div class="card-image">
                         
+                        <img src="https://fy-blog.oss-cn-beijing.aliyuncs.com/MyBlog/Spring/0.jpg" class="responsive-img" alt="Spring">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="数组和矩阵">
-                        
-                        <span class="card-title">数组和矩阵</span>
+                        <span class="card-title">Spring</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文内容为LeetCode数组与矩阵题型刷题汇总，涵盖了大多数的数组与矩阵题型
+                            本文内容多为狂神Spring课程上课笔记，以实例的方式呈现每一个知识点
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-10
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category" target="_blank">
-                                    
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
-                    </a>
-                    
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/Spring/" target="_blank">
+                        <span class="chip bg-color">Spring</span>
                     </a>
                     
                 </div>
@@ -1004,54 +1113,48 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/init.html">
+                <a href="/2020/01/25/mybatis/">
                     <div class="card-image">
                         
+                        <img src="https://fy-blog.oss-cn-beijing.aliyuncs.com/MyBlog/0.jpg" class="responsive-img" alt="MyBatis">
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="数组和矩阵">
-                        
-                        <span class="card-title">数组和矩阵</span>
+                        <span class="card-title">MyBatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文内容为LeetCode数组与矩阵题型刷题汇总，涵盖了大多数的数组与矩阵题型
+                            本文内容多为狂神MyBatis课程上课笔记，以实例的方式呈现每一个知识点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/" class="post-category" target="_blank">
-                                    
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
-                    </a>
-                    
-                    <a href="/" target="_blank">
-                        <span class="chip bg-color"></span>
+                    <a href="/tags/MyBatis/" target="_blank">
+                        <span class="chip bg-color">MyBatis</span>
                     </a>
                     
                 </div>
