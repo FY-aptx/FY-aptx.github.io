@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/FY-aptx/"/>
-  <updated>2020-08-09T16:35:42.585Z</updated>
+  <updated>2020-08-11T14:38:12.234Z</updated>
   <id>https://github.com/FY-aptx/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回溯算法</title>
+    <link href="https://github.com/FY-aptx/2020/04/05/hui-su-suan-fa/"/>
+    <id>https://github.com/FY-aptx/2020/04/05/hui-su-suan-fa/</id>
+    <published>2020-04-05T14:31:18.000Z</published>
+    <updated>2020-08-11T14:38:12.234Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;回溯算法&quot;&gt;&lt;a href=&quot;#回溯算法&quot; class=&quot;headerlink&quot; title=&quot;回溯算法&quot;&gt;&lt;/a&gt;回溯算法&lt;/h2&gt;&lt;h3 id=&quot;0、前言&quot;&gt;&lt;a href=&quot;#0、前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="回溯算法" scheme="https://github.com/FY-aptx/tags/%E5%9B%9E%E6%BA%AF%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>优先队列</title>
@@ -38,9 +68,9 @@
       <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="优先队列" scheme="https://github.com/FY-aptx/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
     
@@ -68,9 +98,9 @@
       <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="位运算" scheme="https://github.com/FY-aptx/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
@@ -98,9 +128,9 @@
       <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="栈和队列" scheme="https://github.com/FY-aptx/tags/%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97/"/>
     
@@ -128,9 +158,9 @@
       <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="数组和矩阵" scheme="https://github.com/FY-aptx/tags/%E6%95%B0%E7%BB%84%E5%92%8C%E7%9F%A9%E9%98%B5/"/>
     
@@ -158,9 +188,9 @@
       <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="树" scheme="https://github.com/FY-aptx/tags/%E6%A0%91/"/>
     
@@ -188,9 +218,9 @@
       <category term="LeetCode" scheme="https://github.com/FY-aptx/categories/LeetCode/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="链表" scheme="https://github.com/FY-aptx/tags/%E9%93%BE%E8%A1%A8/"/>
     
@@ -274,9 +304,9 @@
       <category term="编程算法" scheme="https://github.com/FY-aptx/categories/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="LeetCode" scheme="https://github.com/FY-aptx/tags/LeetCode/"/>
+    
+      <category term="算法" scheme="https://github.com/FY-aptx/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
