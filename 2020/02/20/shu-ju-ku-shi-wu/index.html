@@ -733,17 +733,17 @@ https://cloud.tencent.com/developer/arti">
 <p>select * from user where id = 1;</p>
 <p>查询操作为了避免查询到旧数据或已经被其他事务更改过的数据，需要满足如下条件：</p>
 <ul>
-<li><p>查询时当前事务的版本号需要大于或等于创建版本号</p>
+<li><p><strong>查询时当前事务的版本号需要大于或等于创建版本号</strong></p>
 </li>
-<li><p>查询时当前事务的版本号需要小于删除的版本号</p>
+<li><p><strong>查询时当前事务的版本号需要小于删除的版本号</strong></p>
 </li>
 </ul>
-<p>即：create_version &lt;=  current_version  &lt;  delete_version</p>
+<p>即：<strong>create_version &lt;=  current_version  &lt;  delete_version</strong></p>
 <p>这样就可以避免查询到其他事务修改的数据</p>
 <h3 id="3-3-总结"><a href="#3-3-总结" class="headerlink" title="3.3 总结"></a>3.3 总结</h3><ul>
 <li><p>MVCC手段只适用于Msyql隔离级别中的读已提交（Read committed）和可重复读（Repeatable Read）。</p>
 </li>
-<li><p>Read uncimmitted由于存在脏读，即能读到未提交事务的数据行，所以不适用MVCC.。原因是MVCC的创建版本和删除版本只要在事务提交后才会产生。 </p>
+<li><p>Read uncommitted由于存在脏读，即能读到未提交事务的数据行，所以不适用MVCC。原因是MVCC的创建版本和删除版本只要在事务提交后才会产生。 </p>
 </li>
 <li><p>串行化由于是会对所涉及到的表加锁，并非行锁，自然也就不存在行的版本控制问题。  </p>
 </li>
