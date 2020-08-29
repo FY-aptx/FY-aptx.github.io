@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/FY-aptx/"/>
-  <updated>2020-08-22T05:52:26.839Z</updated>
+  <updated>2020-08-29T04:40:46.363Z</updated>
   <id>https://github.com/FY-aptx/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis数据结构及应用场景</title>
+    <link href="https://github.com/FY-aptx/2020/06/01/redis-shu-ju-jie-gou/"/>
+    <id>https://github.com/FY-aptx/2020/06/01/redis-shu-ju-jie-gou/</id>
+    <published>2020-06-01T12:31:18.000Z</published>
+    <updated>2020-08-29T04:40:46.363Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Redis数据结构及使用场景&quot;&gt;&lt;a href=&quot;#Redis数据结构及使用场景&quot; class=&quot;headerlink&quot; title=&quot;Redis数据结构及使用场景&quot;&gt;&lt;/a&gt;Redis数据结构及使用场景&lt;/h1&gt;&lt;h2 id=&quot;0、前言&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Redis" scheme="https://github.com/FY-aptx/categories/Redis/"/>
+    
+    
+      <category term="Redis" scheme="https://github.com/FY-aptx/tags/Redis/"/>
+    
+      <category term="NoSQL" scheme="https://github.com/FY-aptx/tags/NoSQL/"/>
+    
+      <category term="Java" scheme="https://github.com/FY-aptx/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>LRU缓存机制</title>
