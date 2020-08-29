@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/FY-aptx/"/>
-  <updated>2020-08-29T04:40:46.363Z</updated>
+  <updated>2020-08-29T04:49:14.272Z</updated>
   <id>https://github.com/FY-aptx/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://github.com/FY-aptx/2020/06/01/redis-shu-ju-jie-gou/"/>
     <id>https://github.com/FY-aptx/2020/06/01/redis-shu-ju-jie-gou/</id>
     <published>2020-06-01T12:31:18.000Z</published>
-    <updated>2020-08-29T04:40:46.363Z</updated>
+    <updated>2020-08-29T04:49:14.272Z</updated>
     
     <summary type="html">
     
@@ -41,8 +41,6 @@
       <category term="Redis" scheme="https://github.com/FY-aptx/tags/Redis/"/>
     
       <category term="NoSQL" scheme="https://github.com/FY-aptx/tags/NoSQL/"/>
-    
-      <category term="Java" scheme="https://github.com/FY-aptx/tags/Java/"/>
     
   </entry>
   
@@ -319,7 +317,7 @@
     <link href="https://github.com/FY-aptx/2020/02/20/shu-ju-ku-shi-wu/"/>
     <id>https://github.com/FY-aptx/2020/02/20/shu-ju-ku-shi-wu/</id>
     <published>2020-02-20T05:34:18.000Z</published>
-    <updated>2020-08-22T06:17:17.872Z</updated>
+    <updated>2020-08-29T04:48:51.698Z</updated>
     
     <summary type="html">
     
@@ -337,6 +335,8 @@
     
     
       <category term="数据库事务" scheme="https://github.com/FY-aptx/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1/"/>
+    
+      <category term="MySQL" scheme="https://github.com/FY-aptx/tags/MySQL/"/>
     
   </entry>
   

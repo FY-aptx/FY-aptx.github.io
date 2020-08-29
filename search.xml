@@ -24,8 +24,6 @@
             
             <tag> NoSQL </tag>
             
-            <tag> Java </tag>
-            
         </tags>
       
     </entry>
@@ -309,6 +307,8 @@
         <tags>
             
             <tag> 数据库事务 </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
